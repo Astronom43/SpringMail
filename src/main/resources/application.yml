@@ -1,0 +1,9 @@
+spring:
+  mail:
+    host: smtp.yandex.ru
+    port: 465
+    password: zhmf74no
+    username: sergshubin
+
+
+
