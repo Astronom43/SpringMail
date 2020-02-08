@@ -33,9 +33,12 @@ public class MailSendService {
             logger.error("in case of send failure" + e.getMessage());
         } catch (MailException e){
             logger.error("mail exceprion "+e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
+
 
 
 }
