@@ -12,7 +12,7 @@ import ru.agronom.springboot_mail_service.domain.Message;
 import java.util.Calendar;
 
 @Service
-
+@EnableScheduling
 public class MailSendService {
 
     private final JavaMailSender mailSender;
@@ -46,10 +46,9 @@ public class MailSendService {
         }
 
     }
-
+    @Scheduled(initialDelay = 1000, fixedRate = 1000)
     public void run(){
         if (messageQueue.isNext()){
-
             sendMessage(messageQueue.poll());
         }
     }

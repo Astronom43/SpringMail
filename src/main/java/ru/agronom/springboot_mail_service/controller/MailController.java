@@ -11,8 +11,8 @@ import java.util.Iterator;
 
 @Controller
 public class MailController {
-    private Message[] messageList = new Message[]{new Message("Sergshubin@yandex.ru", "bofisin368@mailmink.com", "subj", "test"),
-            new Message("Sergshubin@yandex.ru", "bofisin368@mailmink.com", "subj1", "test1")};
+    private Message[] messageList = new Message[]{new Message("Sergshubin@yandex.ru", "pafogo7868@xmailsme.com", "subj", "test"),
+            new Message("Sergshubin@yandex.ru", "pafogo7868@xmailsme.com", "subj1", "test1")};
     @GetMapping("/mails")
     @ResponseBody
     public Message[] getAll(){
