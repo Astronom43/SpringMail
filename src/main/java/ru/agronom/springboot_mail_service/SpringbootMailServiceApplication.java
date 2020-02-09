@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import java.util.Calendar;
 
 @SpringBootApplication
-
+@EnableScheduling
 public class SpringbootMailServiceApplication {
     Logger logger = LoggerFactory.getLogger(SpringbootMailServiceApplication.class);
 

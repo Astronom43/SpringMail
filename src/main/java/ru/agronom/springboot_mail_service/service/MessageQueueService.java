@@ -1,5 +1,6 @@
 package ru.agronom.springboot_mail_service.service;
 
+
 import org.springframework.stereotype.Service;
 import ru.agronom.springboot_mail_service.domain.Message;
 import ru.agronom.springboot_mail_service.repo.IMessageQueue;
@@ -8,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 @Service
-public class MessageQueue implements IMessageQueue {
+public class MessageQueueService implements IMessageQueue {
 
     private final Queue<Message> messageQueue = new LinkedList<>();
 

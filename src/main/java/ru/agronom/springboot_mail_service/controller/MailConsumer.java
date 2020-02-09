@@ -12,10 +12,9 @@ import ru.agronom.springboot_mail_service.service.MessageGetService;
 import java.util.Calendar;
 
 @Controller
-@EnableScheduling
+
 public class MailConsumer {
-    private
-    Logger logger = LoggerFactory.getLogger(MailConsumer.class);
+
 
     private final MailSendService mailSendService;
     private final MessageGetService messageGetService;
@@ -25,10 +24,10 @@ public class MailConsumer {
         this.messageGetService = messageGetService;
     }
 
-    @Scheduled(initialDelay = 1000, fixedRate = 1000)
+    @Scheduled(initialDelay = 1000, fixedRate = 5000)
     public void run() {
         messageGetService.getMail();
-        logger.info("getmail " + Calendar.getInstance().getTime());
-        mailSendService.run();
+
+
     }
 }
