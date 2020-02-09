@@ -4,6 +4,7 @@ spring:
     port: 465
     password: zhmf74no
     username: sergshubin
+mail-get: http://localhost:8080/mails
 
 
 
