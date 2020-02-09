@@ -2,24 +2,32 @@ package ru.agronom.springboot_mail_service.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.*;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import ru.agronom.springboot_mail_service.domain.Message;
+import ru.agronom.springboot_mail_service.repo.IMessageQueue;
 
 import javax.annotation.Resource;
 import java.util.Calendar;
 
 @Service
-@EnableScheduling
+
 public class MailSendService {
 
     @Resource
     private JavaMailSender mailSender;
 
-    private final Logger LOG = LoggerFactory.getLogger(MailSendService.class);
 
+    private final Logger LOG = LoggerFactory.getLogger(MailSendService.class);
+    private final IMessageQueue messageQueue;
+
+    public MailSendService(@Qualifier(value = "messageQueueService") IMessageQueue messageQueue) {
+        this.messageQueue = messageQueue;
+    }
 
 
     public void sendMessage(Message message) {
@@ -43,6 +51,12 @@ public class MailSendService {
             LOG.error(e.getMessage());
         }
 
+    }
+    @Scheduled(initialDelay = 1000, fixedRate = 50)
+    public void run(){
+        while (messageQueue.isNext()){
+            this.sendMessage(messageQueue.poll());
+        }
     }
 
 
