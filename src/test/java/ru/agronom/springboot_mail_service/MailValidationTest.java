@@ -63,7 +63,7 @@ class MailValidationTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {".s@com","s.@com","s.s","@"})
+    @ValueSource(strings = {".s@com","s.@com","s.s","@","qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq@com"})
     void notValidEmail(String s){
         m1.setFrom(s);
         m1.setTo("e@e.com");
