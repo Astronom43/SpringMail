@@ -6,13 +6,13 @@ import javax.validation.constraints.Size;
 
 public class Message {
     @NotNull(message = "email must be set")
-    @Email (message = "email can be valid")
+    @Email (message = "email must be valid")
     private String from;
     @NotNull(message = "email must be set")
-    @Email(message = "email can be valid")
+    @Email(message = "email must be valid")
     private String to;
     @NotNull(message = "subj must be set")
-    @Size(min = 1, message = "subj can't be empty")
+    @Size(min = 1, message = "subj must be empty")
     private String subject;
     private String text;
 

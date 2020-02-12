@@ -3,13 +3,11 @@ package ru.agronom.springboot_mail_service.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.agronom.springboot_mail_service.domain.Message;
 import ru.agronom.springboot_mail_service.repo.IMessageQueue;
 
 import javax.annotation.Resource;
-import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.util.Queue;
