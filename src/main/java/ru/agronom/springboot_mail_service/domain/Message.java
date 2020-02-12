@@ -1,8 +1,18 @@
 package ru.agronom.springboot_mail_service.domain;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Message {
+    @NotNull(message = "email must be set")
+    @Email (message = "email can be valid")
     private String from;
+    @NotNull(message = "email must be set")
+    @Email(message = "email can be valid")
     private String to;
+    @NotNull(message = "subj must be set")
+    @Size(min = 1, message = "subj can't be empty")
     private String subject;
     private String text;
 
