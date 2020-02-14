@@ -1,32 +1,27 @@
 package ru.agronom.springboot_mail_service.domain;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Message {
+
     @NotNull(message = "email must be set")
-    @Email (message = "email must be valid")
+    @Email(message = "email must be valid")
     private String from;
+
     @NotNull(message = "email must be set")
     @Email(message = "email must be valid")
     private String to;
-    @NotNull(message = "subj must be set")
-    @Size(min = 1, message = "subj must be empty")
+
+    @NotBlank(message = "Subject must ")
+    @Size(min = 1, message = "Subject of email must not be empty.")
     private String subject;
+
     private String text;
 
     public Message() {
-    }
-
-    @Override
-    public String toString() {
-        return "Message{" +
-                "from='" + from + '\'' +
-                ", to='" + to + '\'' +
-                ", subject='" + subject + '\'' +
-                ", text='" + text + '\'' +
-                '}';
     }
 
     public Message(String from, String to, String subject, String text) {
@@ -66,5 +61,15 @@ public class Message {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "from='" + from + '\'' +
+                ", to='" + to + '\'' +
+                ", subject='" + subject + '\'' +
+                ", text='" + text + '\'' +
+                '}';
     }
 }

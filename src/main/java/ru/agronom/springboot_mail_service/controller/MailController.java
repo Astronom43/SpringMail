@@ -1,23 +1,19 @@
 package ru.agronom.springboot_mail_service.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import ru.agronom.springboot_mail_service.domain.Message;
 
-
-import java.util.ArrayList;
-import java.util.Iterator;
-
-@Controller
+@RestController
 public class MailController {
-    private Message[] messageList = new Message[]{new Message("Sergshubin@yandex.ru", "pafogo7868@xmailsme.com", "subj", "test"),
-            new Message("Sergshubin@yandex.ru", "pafogo7868@xmailsme.com", "subj1", "test1")};
+
+    private Message[] messageList = new Message[]{
+            new Message("Sergshubin@yandex.ru", "pafogo7868@xmailsme.com", "subj", "test"),
+            new Message("Sergshubin@yandex.ru", "pafogo7868@xmailsme.com", "subj1", "test1")
+    };
+
     @GetMapping("/mails")
-    @ResponseBody
-    public Message[] getAll(){
+    public Message[] getAll() {
         return messageList;
     }
-
-
 }

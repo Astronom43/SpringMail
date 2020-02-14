@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.client.RestTemplate;
 import ru.agronom.springboot_mail_service.domain.Message;
 import ru.agronom.springboot_mail_service.repo.IMessageQueue;
@@ -24,7 +23,6 @@ public class MessageGetService {
     public MessageGetService(@Qualifier(value = "messageQueueService") IMessageQueue messageQueue) {
         this.messageQueue = messageQueue;
     }
-
 
     void getMail() {
         RestTemplate restTemplate = new RestTemplateBuilder().build();

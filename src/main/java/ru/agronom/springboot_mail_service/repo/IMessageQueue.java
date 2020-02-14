@@ -5,10 +5,8 @@ import ru.agronom.springboot_mail_service.domain.Message;
 
 @Repository
 public interface IMessageQueue {
+
     boolean offer(Message message);
     Message poll();
     boolean isNext();
-
-
-
 }
