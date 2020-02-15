@@ -8,8 +8,8 @@ import ru.agronom.springboot_mail_service.domain.Message;
 public class MailController {
 
     private Message[] messageList = new Message[]{
-            new Message("Sergshubin@yandex.ru", "pafogo7868@xmailsme.com", "subj", "test"),
-            new Message("Sergshubin@yandex.ru", "pafogo7868@xmailsme.com", "subj1", "test1")
+            new Message("Sergshubin@yandex.ru",  "subj", "test"),
+            new Message("Sergshubin@yandex.ru",  "subj1", "test1")
     };
 
     @GetMapping("/mails")
