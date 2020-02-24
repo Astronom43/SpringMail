@@ -1,5 +1,6 @@
 package ru.agronom.springboot_mail_service.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Value;
 import ru.agronom.springboot_mail_service.domain.validator.EmailArray;
 
@@ -11,6 +12,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Message {
 
 

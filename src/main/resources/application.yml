@@ -10,7 +10,7 @@ spring:
       mail.smtp.ssl.enable: true
 
 
-mail-get: http://localhost:8080/mails
+
 
 
 
