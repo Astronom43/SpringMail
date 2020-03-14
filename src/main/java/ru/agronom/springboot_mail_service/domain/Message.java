@@ -8,12 +8,13 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Message {
+public class Message implements Serializable {
 
 
     private final static String NOT_NULL_MESSAGE = "email must be set";
