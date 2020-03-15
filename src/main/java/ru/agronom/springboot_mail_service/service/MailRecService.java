@@ -10,6 +10,7 @@ import ru.agronom.springboot_mail_service.domain.Message;
 
 import javax.annotation.Resource;
 import javax.validation.ValidationException;
+import java.util.Optional;
 
 @Service
 @RabbitListener(queues = "mail")
@@ -21,16 +22,18 @@ public class MailRecService {
     private MailSendService mailSendService;
 
     @RabbitHandler
-    public void receiveMessage(Message message) {
+    public String receiveMessage(Message message) {
 
         try{
             validateService.isValid(message);
             mailSendService.sendMessage(message);
+            return "202";
 
         } catch (ValidationException e){
+            return "400 "+e.getMessage();
 
         } catch (MailException e){
-
+            return "500 "+e.getMessage();
         }
     }
 
